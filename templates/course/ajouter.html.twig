@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de courses{% endblock %}
+
+{% block body %}
+    <table class="table w-50 m-auto text-center">
+        <thead class="thead-dark">
+        <tr>
+            <th>Libellé</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%  for item in items %}
+            <tr>
+                <td>{{ item.libelle }}</td>
+                <td>
+                    <a href="{{ path('ajouter', {id: item.id }) }}" class="btn btn-primary">Buy</a>
+                    <a href="{{ path('supprimer', {id: item.id }) }}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
